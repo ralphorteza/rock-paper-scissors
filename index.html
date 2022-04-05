@@ -8,6 +8,8 @@
     <body>
         <script>
            
+            /* Computer to choose hand by assigning number values to
+             * each hand. rock == 0, paper == 1, scissors == 2. */
             function computerPlay() {
                 let randomNumber = Math.floor(Math.random()*3);
                 console.log(randomNumber);
@@ -23,13 +25,43 @@
 
                 console.log(choice);
                 return choice;
-
             }
 
             // play round
             function playRound(playerSelection, computerSelection) {
-                console.log("Player plays: " + playerSelection +
-                "\nComputer plays: " + computerSelection);
+
+                let playerWins = "\nplayer wins";
+                let computerWins = "\ncomputer wins";
+                let draw ="\ndraw";
+                let results = "Player plays: " + playerSelection +
+                "\nComputer plays: " + computerSelection; 
+            
+
+                if (playerSelection === "rock" && computerSelection === "paper") {
+                   // computer wins
+                   results += computerWins;
+                } else if (playerSelection === "rock" && computerSelection === "scissors") {
+                    // player wins
+                    results += playerWins;
+                } else if (playerSelection === "paper" && computerSelection === "scissors") {
+                    // player wins
+                    results += playerWins;
+                } else if (playerSelection === "paper" && computerSelection === "rock") {
+                    //computer wins
+                    results += computerWins;
+                } else if (playerSelection === "scissors" && computerSelection === "rock") {
+                    // computer wins
+                    results += computerWins;
+                } else if (playerSelection === "scissors" && computerSelection === "paper") {
+                    // player wins
+                    results += playerWins;
+                } else {
+                    // draw
+                    results += draw;
+                }
+                
+          
+                return results
             }
 
             const playerSelection = "rock";
