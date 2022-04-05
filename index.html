@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>rock, paper, scissors!</title>
+    </head>
+
+    <body>
+        <script>
+           
+            function computerPlay() {
+                let randomNumber = Math.floor(Math.random()*3);
+                console.log(randomNumber);
+                let choice = "";
+
+                if (randomNumber == 0) {
+                    choice = "rock";
+                } else if (randomNumber == 1) {
+                    choice = "paper";
+                } else {
+                    choice = "scissors";
+                }
+
+                console.log(choice);
+                return choice;
+
+            }
+
+            // play round
+            function playRound(playerSelection, computerSelection) {
+                console.log("Player plays: " + playerSelection +
+                "\nComputer plays: " + computerSelection);
+            }
+
+            const playerSelection = "rock";
+            const computerSelection = computerPlay();
+            /* console.log(computerSelection); */
+            console.log(playRound(playerSelection, computerSelection));
+
+        </script>
+    </body>
+</html>   
