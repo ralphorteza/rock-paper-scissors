@@ -60,13 +60,16 @@
 
                outputGameResults(scoreArray);
             }
+
+
             /* Computer to choose hand by assigning number values to
              * each hand. rock == 0, paper == 1, scissors == 2. */
             function computerPlay() {
-                let randomNumber = Math.floor(Math.random()*3);
-                //console.log(randomNumber);
-                let choice = "";
 
+                let randomNumber = Math.floor(Math.random()*3);  // generates a random number from 0 to 2.
+                let choice = "";                                 // initialize choice to be stored as a String.
+
+                // Generated number will decide which hand the computer will play.
                 if (randomNumber == 0) {
                     choice = "rock";
                 } else if (randomNumber == 1) {
@@ -75,8 +78,7 @@
                     choice = "scissors";
                 }
 
-                //console.log(choice);
-                return choice;
+                return choice;      // returns the computer hand.
             }
 
             function userPlay() {
