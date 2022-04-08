@@ -81,16 +81,18 @@
                 return choice;      // returns the computer hand.
             }
 
+            /* This function displays a prompt for user to input their hand. */
             function userPlay() {
-                let input = prompt("Please choose your hand: ");
-                input = input.toLowerCase();
+                let input = prompt("Please choose your hand: ");        // stores hand in message prompt.
+                input = input.toLowerCase().trim();                            // lowercase and trim whitespace.
 
+                // Validates input if not given correct choices.
                 while (input != "paper" && input != "scissors" && input != "rock") {
                     input = prompt("Not a valide hand. Choose from rock, paper, or scissors: ");
-                    input = input.toLowerCase();
+                    input = input.toLowerCase().trim();
                 }
 
-                return input;
+                return input;   
             }
 
             // play round
