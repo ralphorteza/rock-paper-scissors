@@ -95,18 +95,18 @@
                 return input;   
             }
 
-            // play round
+            // This function plays a round in a game of rock, paper, scissors.
             function playRound(playerSelection, computerSelection) {
 
-                let playerWins = "player";
-                let computerWins = "computer";
-                let draw = "draw";
-                let results = "";
+                let results = "";               // stores the results if player or computer wins or results in a draw.
+                let playerWins = "player";      // to replace results value if player wins.
+                let computerWins = "computer";  // to replace results value if computer wins.
+                let draw = "draw";              // to replace results value if round is a draw.
 
-                console.log("player plays: " + playerSelection);
-                console.log("computer plays: " + computerSelection);
+                console.log("player plays: " + playerSelection);        // outputs the player's hand.
+                console.log("computer plays: " + computerSelection);    // outputs the computer's hand.
             
-
+                // The combination of hands that determines the win, loss, and draw of computer and player.
                 if (playerSelection === "rock" && computerSelection === "paper") {
                     //computer wins
                     console.log("computer wins round");
@@ -136,8 +136,7 @@
                     console.log("draw");
                     results = draw;
                 }
-                
-          
+            
                 return results
             }
 
