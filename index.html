@@ -7,12 +7,41 @@
 
     <body>
         <script>
-           
+
+            /* Stores current scores for user and computer */
+            function scores(str, arr) {
+                if (str == "computer") { arr[0] = arr[0] + 1; }
+                if (str == "user") { arr[1] = arr[1] + 1; }
+                
+                return arr;
+            }
+
+            function game() {
+                let arr = [0,0];
+                const MAX_GAMES = 5;
+                let str = "";
+               for (let i=1; i<=MAX_GAMES; i++) {
+                   
+                   console.log("round " + i);
+                   let player = userPlay();
+                   let computer = computerPlay();
+                    str = playRound(player, computer);
+                    arr = scores(str, arr);
+               }
+
+               if ( arr[0] === arr[1]) {
+                    console.log("The game is a draw.");
+               } else if (arr[0] != arr[1] && arr[0] > arr[1]) {
+                   console.log("computer wins with " +arr[0]+ "/5 games.");
+               } else {
+                   console.log("user wins with " +arr[1]+ "/5 games.");
+               }
+            }
             /* Computer to choose hand by assigning number values to
              * each hand. rock == 0, paper == 1, scissors == 2. */
             function computerPlay() {
                 let randomNumber = Math.floor(Math.random()*3);
-                console.log(randomNumber);
+                //console.log(randomNumber);
                 let choice = "";
 
                 if (randomNumber == 0) {
@@ -23,7 +52,7 @@
                     choice = "scissors";
                 }
 
-                console.log(choice);
+                //console.log(choice);
                 return choice;
             }
 
@@ -42,34 +71,43 @@
             // play round
             function playRound(playerSelection, computerSelection) {
 
-                let playerWins = "\nplayer wins";
-                let computerWins = "\ncomputer wins";
-                let draw ="\ndraw";
-                let results = "Player plays: " + playerSelection +
-                "\nComputer plays: " + computerSelection; 
+                let playerWins = "player";
+                let computerWins = "computer";
+                let draw = "draw";
+                let results = "";
+
+                console.log("player plays: " + playerSelection);
+                console.log("computer plays: " + computerSelection);
             
 
                 if (playerSelection === "rock" && computerSelection === "paper") {
-                   // computer wins
-                   results += computerWins;
+                    //computer wins
+                    console.log("computer wins round");
+                   results += computerWins
                 } else if (playerSelection === "rock" && computerSelection === "scissors") {
                     // player wins
-                    results += playerWins;
+                    console.log("player wins round");
+                    results = playerWins;
                 } else if (playerSelection === "paper" && computerSelection === "scissors") {
                     // player wins
-                    results += playerWins;
+                    console.log("player wins round");
+                    results = playerWins;
                 } else if (playerSelection === "paper" && computerSelection === "rock") {
                     //computer wins
-                    results += computerWins;
+                    console.log("computer wins round");
+                    results = computerWins;
                 } else if (playerSelection === "scissors" && computerSelection === "rock") {
                     // computer wins
-                    results += computerWins;
+                    console.log("computer wins round");
+                    results = computerWins;
                 } else if (playerSelection === "scissors" && computerSelection === "paper") {
                     // player wins
-                    results += playerWins;
+                    console.log("player wins round");
+                    results = playerWins;
                 } else {
                     // draw
-                    results += draw;
+                    console.log("draw");
+                    results = draw;
                 }
                 
           
@@ -79,7 +117,9 @@
             const playerSelection = userPlay();
             const computerSelection = computerPlay();
             /* console.log(computerSelection); */
-            console.log(playRound(playerSelection, computerSelection));
+            /* console.log(playRound(playerSelection, computerSelection)); */
+            /* console.log(game()); */
+            game();
 
         </script>
     </body>
