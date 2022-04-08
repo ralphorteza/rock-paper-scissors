@@ -11,22 +11,36 @@
             /* Stores current scores for user and computer */
             function scores(str, arr) {
                 if (str == "computer") { arr[0] = arr[0] + 1; }
-                if (str == "user") { arr[1] = arr[1] + 1; }
-                
+                if (str == "player") { arr[1] = arr[1] + 1; }
+                if (str == "draw") { arr[2] = arr[2] + 1; }
+               
                 return arr;
             }
 
+            /* outputs the current score of the current round */
+            function outputCurrentScores(arr, i) {
+                let computerScore = arr[0];
+                let userScore = arr[1];
+                let drawScore = arr[2];
+                let outputString = "computer: " +computerScore+ "| user: " +userScore+ "| draw: " +drawScore;
+
+                console.log("current scores");
+                console.log(outputString);
+            }
+
             function game() {
-                let arr = [0,0];
+                let arr = [0,0,0];
                 const MAX_GAMES = 5;
                 let str = "";
                for (let i=1; i<=MAX_GAMES; i++) {
                    
-                   console.log("round " + i);
-                   let player = userPlay();
+                   console.log("--round " + i + "--");
+                   let player = userPlay()
                    let computer = computerPlay();
                     str = playRound(player, computer);
                     arr = scores(str, arr);
+
+                    outputCurrentScores(arr, i);
                }
 
                if ( arr[0] === arr[1]) {
