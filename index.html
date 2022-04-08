@@ -28,6 +28,19 @@
                 console.log(outputString);
             }
 
+            /* outputs the final scores */
+            function outputGameResults(scoreArray) {
+                console.log("----------------")
+                console.log("Final Results: ")
+                if ( scoreArray[0] === scoreArray[1]) {
+                    console.log("The game is a draw.");
+               } else if (scoreArray[0] != scoreArray[1] && scoreArray[0] > scoreArray[1]) {
+                   console.log("computer wins with " +scoreArray[0]+ "/5 games.");
+               } else {
+                   console.log("user wins with " +scoreArray[1]+ "/5 games.");
+               }
+            }
+
             /* Main function to play game for 5 rounds */
             function game() {
                 let scoreArray = [0,0,0];      // stores current scores for computer, user, or draw.
@@ -45,13 +58,7 @@
                     outputCurrentScores(scoreArray, i);             // display current score.
                }
 
-               if ( scoreArray[0] === scoreArray[1]) {
-                    console.log("The game is a draw.");
-               } else if (scoreArray[0] != scoreArray[1] && scoreArray[0] > scoreArray[1]) {
-                   console.log("computer wins with " +scoreArray[0]+ "/5 games.");
-               } else {
-                   console.log("user wins with " +scoreArray[1]+ "/5 games.");
-               }
+               outputGameResults(scoreArray);
             }
             /* Computer to choose hand by assigning number values to
              * each hand. rock == 0, paper == 1, scissors == 2. */
