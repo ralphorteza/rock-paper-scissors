@@ -9,46 +9,48 @@
         <script>
 
             /* Stores current scores for user and computer */
-            function scores(str, arr) {
-                if (str == "computer") { arr[0] = arr[0] + 1; }
-                if (str == "player") { arr[1] = arr[1] + 1; }
-                if (str == "draw") { arr[2] = arr[2] + 1; }
+            function scores(str, scoreArray) {
+                if (str == "computer") { scoreArray[0] = scoreArray[0] + 1; }
+                if (str == "player") { scoreArray[1] = scoreArray[1] + 1; }
+                if (str == "draw") { scoreArray[2] = scoreArray[2] + 1; }
                
-                return arr;
+                return scoreArray;
             }
 
             /* outputs the current score of the current round */
-            function outputCurrentScores(arr, i) {
-                let computerScore = arr[0];
-                let userScore = arr[1];
-                let drawScore = arr[2];
+            function outputCurrentScores(scoreArray, i) {
+                let computerScore = scoreArray[0];
+                let userScore = scoreArray[1];
+                let drawScore = scoreArray[2];
                 let outputString = "computer: " +computerScore+ "| user: " +userScore+ "| draw: " +drawScore;
 
                 console.log("current scores");
                 console.log(outputString);
             }
 
+            /* Main function to play game for 5 rounds */
             function game() {
-                let arr = [0,0,0];
-                const MAX_GAMES = 5;
-                let str = "";
-               for (let i=1; i<=MAX_GAMES; i++) {
-                   
+                let scoreArray = [0,0,0];      // stores current scores for computer, user, or draw.
+                const MAX_GAMES = 5;           // amount of rounds to play.
+                let resultString = "";         // stores the result in String form.
+               
+                // Iterates the game with n-rounds and updates
+                // and output computer and user hands per round.
+                for (let i=1; i<=MAX_GAMES; i++) {
                    console.log("--round " + i + "--");
                    let player = userPlay()
                    let computer = computerPlay();
-                    str = playRound(player, computer);
-                    arr = scores(str, arr);
-
-                    outputCurrentScores(arr, i);
+                    resultString = playRound(player, computer);     // plays a round and returns round results.
+                    scoreArray = scores(resultString, scoreArray);  // update scores to current round.
+                    outputCurrentScores(scoreArray, i);             // display current score.
                }
 
-               if ( arr[0] === arr[1]) {
+               if ( scoreArray[0] === scoreArray[1]) {
                     console.log("The game is a draw.");
-               } else if (arr[0] != arr[1] && arr[0] > arr[1]) {
-                   console.log("computer wins with " +arr[0]+ "/5 games.");
+               } else if (scoreArray[0] != scoreArray[1] && scoreArray[0] > scoreArray[1]) {
+                   console.log("computer wins with " +scoreArray[0]+ "/5 games.");
                } else {
-                   console.log("user wins with " +arr[1]+ "/5 games.");
+                   console.log("user wins with " +scoreArray[1]+ "/5 games.");
                }
             }
             /* Computer to choose hand by assigning number values to
