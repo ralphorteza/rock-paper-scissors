@@ -20,8 +20,8 @@ function outputCurrentScores(scoreArray, i) {
 
 /* outputs the final scores */
 function outputGameResults(scoreArray) {
-    console.log("----------------")
-    console.log("Final Results: ")
+    console.log("----------------");
+    console.log("Final Results: ");
     if ( scoreArray[0] === scoreArray[1]) {
         console.log("The game is a draw.");
    } else if (scoreArray[0] != scoreArray[1] && scoreArray[0] > scoreArray[1]) {
@@ -41,7 +41,7 @@ function game() {
     // and output computer and user hands per round.
     for (let i=1; i<=MAX_GAMES; i++) {
        console.log("--round " + i + "--");
-       let player = userPlay()
+       let player = userPlay();
        let computer = computerPlay();
         resultString = playRound(player, computer);     // plays a round and returns round results.
         scoreArray = scores(resultString, scoreArray);  // update scores to current round.
@@ -127,9 +127,9 @@ function playRound(playerSelection, computerSelection) {
         results = draw;
     }
 
-    return results
+    return results;
 }
 
-const playerSelection = userPlay();
-const computerSelection = computerPlay();
+/* const playerSelection = userPlay();
+const computerSelection = computerPlay(); */
 game();
