@@ -6,6 +6,56 @@
     </head>
 
     <body>
-        <script src="rock-paper-scissors-game.js"></script>
+        <button class="options">rock</button>
+        <button class="options">paper</button>
+        <button class="options">scissors</button>
+        <script>
+          const options = document.querySelectorAll(".options");
+
+          options.forEach((option) => {
+            option.addEventListener("click", function () {
+              // TO DO: process user click
+              const pInput = this.textContent;
+              const cOptions = ["rock", "paper", "scissors"];
+              const cInput = cOptions[Math.floor(Math.random() * 3)];
+
+              compareInputs(pInput, cInput);
+            });
+          });
+
+          function compareInputs(pInput, cInput) {
+            const currentMatch = `${pInput} vs ${cInput}`;
+
+            if (pInput == cInput) {
+              alert(`${currentMatch} is a Tie`);
+              return;
+            }
+
+            if (pInput === cInput) {
+              alert(`${currentMatch} is a Tie`);
+            }
+
+            if (pInput === "rock") {            // Player chooses rock.
+              if (cInput === "scissors") {
+                alert(`${currentMatch} = you win`);
+              } else {
+                alert(`${currentMatch} = computer wins`);
+              }
+            } else if (pInput === "paper") {   // Player chooses paper.
+              if (cInput === "rock") {
+                alert(`${currentMatch} = you win`);
+              } else {
+                alert(`${currentMatch} = computer wins`);
+              }
+            } else {
+              if (cInput === "paper") {       // Player chooses scissors.
+                alert(`${currentMatch} = you win`);
+              } else {
+                alert(`${currentMatch} = computer wins`);
+              }
+            }
+
+          }
+        </script>
     </body>
 </html>   
