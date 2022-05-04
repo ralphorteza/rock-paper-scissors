@@ -10,7 +10,6 @@ function game() {
       // TO DO: process user click
       const pInput = this.textContent;
       const cInput = computerPlay();
-
       playRound(pInput, cInput);
       updateScore();
       updateRound();
@@ -31,7 +30,20 @@ function updateScore() {
 }
 
 function updateRound() {
-  document.getElementById("roundNum").textContent = roundNum++;
+  roundNum++;
+  document.getElementById("roundNum").textContent = roundNum;
+
+  if (roundNum == 5) { gameResults(); }
+}
+
+function gameResults() {
+  if (pScore === cScore) {
+    alert(`game is a tie`);
+  } else if (pScore < cScore) {
+    alert(`computer wins with ${cScore} points.`);
+  } else {
+    alert(`computer wins with ${pScore} points.`);
+  }
 }
 
 function playRound(pInput, cInput) {
