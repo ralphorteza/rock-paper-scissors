@@ -1,6 +1,8 @@
 const options = document.querySelectorAll(".options");
 let pScore = 0;
 let cScore = 0;
+let tieScore = 0;
+let roundNum = 1;
 
 function game() {
   options.forEach((option) => {
@@ -11,6 +13,7 @@ function game() {
 
       playRound(pInput, cInput);
       updateScore();
+      updateRound();
     });
   });
 }
@@ -24,14 +27,19 @@ function computerPlay() {
 function updateScore() {
   document.getElementById("pScore").textContent = pScore;
   document.getElementById("cScore").textContent = cScore;
+  document.getElementById("tieScore").textContent = tieScore;
 }
 
+function updateRound() {
+  document.getElementById("roundNum").textContent = roundNum++;
+}
 
 function playRound(pInput, cInput) {
   const currentMatch = `${pInput} vs ${cInput}`;
 
   if (pInput == cInput) {
     alert(`${currentMatch} is a Tie`);
+    tieScore++;
     return;
   }
 
