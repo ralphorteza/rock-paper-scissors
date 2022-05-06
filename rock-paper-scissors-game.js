@@ -32,11 +32,20 @@ function updateScore() {
 function updateRound() {
   roundNum++;
   document.getElementById("roundNum").textContent = roundNum;
-
+  
   if (roundNum == 5) { 
     gameResults();
-    document.getElementById("options").onclick = null;
+    restartGame();
   }
+}
+
+function restartGame() {
+  pScore = 0;
+  cScore = 0;
+  tieScore = 0;
+  roundNum = 0;
+  updateScore();
+  updateRound();
 }
 
 function gameResults() {
@@ -47,16 +56,12 @@ function gameResults() {
   } else {
     alert(`Player wins with ${pScore} points.`);
   }
+
+
 }
 
 function playRound(pInput, cInput) {
   const currentMatch = `${pInput} vs ${cInput}`;
-
-/*   if (pInput == cInput) {
-    alert(`${currentMatch} is a Tie`);
-    tieScore++;
-    return;
-  } */
 
   if (pInput === cInput) {
     alert(`${currentMatch} is a Tie`);
