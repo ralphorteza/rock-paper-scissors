@@ -33,7 +33,10 @@ function updateRound() {
   roundNum++;
   document.getElementById("roundNum").textContent = roundNum;
 
-  if (roundNum == 5) { gameResults(); }
+  if (roundNum == 5) { 
+    gameResults();
+    document.getElementById("options").onclick = null;
+  }
 }
 
 function gameResults() {
@@ -49,14 +52,16 @@ function gameResults() {
 function playRound(pInput, cInput) {
   const currentMatch = `${pInput} vs ${cInput}`;
 
-  if (pInput == cInput) {
+/*   if (pInput == cInput) {
     alert(`${currentMatch} is a Tie`);
     tieScore++;
     return;
-  }
+  } */
 
   if (pInput === cInput) {
     alert(`${currentMatch} is a Tie`);
+    tieScore++;
+    return;
   }
 
   if (pInput === "rock") {            // Player chooses rock.
