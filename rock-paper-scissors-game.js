@@ -40,9 +40,9 @@ function gameResults() {
   if (pScore === cScore) {
     alert(`game is a tie`);
   } else if (pScore < cScore) {
-    alert(`computer wins with ${cScore} points.`);
+    alert(`Computer wins with ${cScore} points.`);
   } else {
-    alert(`computer wins with ${pScore} points.`);
+    alert(`Player wins with ${pScore} points.`);
   }
 }
 
