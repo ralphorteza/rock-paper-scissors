@@ -30,9 +30,9 @@ function updateScore() {
 }
 
 function updateRound() {
-  roundNum++;
+  roundNum++; 
   document.getElementById("roundNum").textContent = roundNum;
-  
+
   if (roundNum == 5) { 
     gameResults();
     restartGame();
