@@ -4,18 +4,25 @@
         <meta charset="UTF-8">
         <title>rock, paper, scissors!</title>
         <script src="rock-paper-scissors-game.js" defer></script>
+        <link rel="stylesheet" href="styles.css">
     </head>
 
     <body>
-      <div class="mainContainer">
-        <h2>Win 5 games to be the victor</h2>
-        <h3>Round: <span id="roundNum">1</span></h3>
+      <div class="container">
+        <div class="header">
+          <h2>Win 5 games to be the victor</h2>
+        </div>
+        <h3>Round: <span id="roundNum">0</span></h3>
         <h3>
-          Player <span id="pScore">0</span> - <span id="cScore">0</span> Computer Tie - <span id="tieScore">0</span>
+          <br>Player <span id="pScore">0</span></br>
+          <br>Computer <span id="cScore">0</span></br>
+          <br>Tie <span id="tieScore">0</span></br>
         </h3>
-        <button class="options">rock</button>
-        <button class="options">paper</button>
-        <button class="options">scissors</button>
+        <div class="buttons">
+          <button class="options">rock</button>
+          <button class="options">paper</button>
+          <button class="options">scissors</button>
+        </div>
       </div>
     </body>
 </html>   

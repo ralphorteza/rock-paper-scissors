@@ -1,8 +1,10 @@
+// TODO: Fix round scoring.
+
 const options = document.querySelectorAll(".options");
 let pScore = 0;
 let cScore = 0;
 let tieScore = 0;
-let roundNum = 1;
+let roundNum = 0;
 
 function game() {
   options.forEach((option) => {
