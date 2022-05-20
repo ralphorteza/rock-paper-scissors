@@ -1,20 +1,25 @@
-// TODO: Fix round scoring.
+// TODO: give time to display proper end score. 
 
 const options = document.querySelectorAll(".options");
 let pScore = 0;
 let cScore = 0;
 let tieScore = 0;
-let roundNum = 0;
+let roundNum = 1;
 
 function game() {
   options.forEach((option) => {
     option.addEventListener("click", function () {
-      // TO DO: process user click
+      updateRound();
       const pInput = this.textContent;
       const cInput = computerPlay();
       playRound(pInput, cInput);
       updateScore();
-      updateRound();
+      
+      if (roundNum == 3) {
+        gameResults();
+        restartGame();
+      }
+      roundNum++;
     });
   });
 }
@@ -32,13 +37,7 @@ function updateScore() {
 }
 
 function updateRound() {
-  roundNum++; 
   document.getElementById("roundNum").textContent = roundNum;
-
-  if (roundNum == 5) { 
-    gameResults();
-    restartGame();
-  }
 }
 
 function restartGame() {
@@ -47,7 +46,8 @@ function restartGame() {
   tieScore = 0;
   roundNum = 0;
   updateScore();
-  updateRound();
+  document.getElementById("roundNum").textContent = roundNum;
+
 }
 
 function gameResults() {
